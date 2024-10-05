@@ -8,27 +8,28 @@ app = FastAPI()
 
 @app.get("/systemInfo")
 async def carculateHabitable(
-        planetNames: List[str] = Query(None),
-        hostNames: List[str] = Query(None),
-        distances: List[str] = Query(None),
-        spectralTypes: List[str] = Query(None),
-        VMagnitudes: List[str] = Query(None),
-        planetDensities: List[str] = Query(None),
-        hostDensities: List[str] = Query(None),
-        eccentricities: List[str] = Query(None)):
+        plNameList: List[str] = Query(None),
+        plDensList: List[str] = Query(None),
+        plRobeccenList: List[str] = Query(None),
+        syDistList: List[str] = Query(None),
+        syVmagList: List[str] = Query(None),
+        stSpectypeList: List[str] = Query(None),
+        stMassList: List[str] = Query(None),
+        stTeffList: List[str] = Query(None)
+):
 
     results = []
 
-    for i in range(len(planetNames)):
+    for i in range(len(plNameList)):
         result = chp(
-            planetNames[i],
-            hostNames[i],
-            distances[i],
-            spectralTypes[i],
-            VMagnitudes[i],
-            planetDensities[i],
-            hostDensities[i],
-            eccentricities[i]
+            plNameList[i],
+            plDensList[i],
+            plRobeccenList[i],
+            syDistList[i],
+            syVmagList[i],
+            stSpectypeList[i],
+            stMassList[i],
+            stTeffList[i]
         )
         results.append(result)
 
