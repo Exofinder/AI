@@ -1,12 +1,13 @@
 def calculate_habitable_percent(
         plName: str,
         plDens: str,
-        plRobeccen: str,
-        syDist: str,
-        syVmag: str,
+        plObeccen: str,
         stSpectype: str,
         stMass: str,
-        stTeff: str):
+        stTeff: str,
+        syDist: str,
+        syVmag: str
+):
     ########## AI logic ##########
 
     habitablePercent = 0.01
