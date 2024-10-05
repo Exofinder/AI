@@ -9,7 +9,7 @@ app = FastAPI()
 @app.get("/systemInfo")
 async def carculateHabitable(
         planetNames: List[str] = Query(None),
-        hostNmaes: List[str] = Query(None),
+        hostNames: List[str] = Query(None),
         distances: List[str] = Query(None),
         spectralTypes: List[str] = Query(None),
         VMagnitudes: List[str] = Query(None),
@@ -22,7 +22,7 @@ async def carculateHabitable(
     for i in range(len(planetNames)):
         result = chp(
             planetNames[i],
-            hostNmaes[i],
+            hostNames[i],
             distances[i],
             spectralTypes[i],
             VMagnitudes[i],
