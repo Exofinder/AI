@@ -2,6 +2,7 @@ import fomula
 from sklearn.metrics.pairwise import euclidean_distances
 
 def calculate_habitable_percent(
+        maxDnsity:float,
         plName: str,
         plDens: str,
         plObeccen: str,
@@ -37,11 +38,12 @@ def calculate_habitable_percent(
     r_inner, r_outer = fomula.calculate_habitable_zone_boundaries(luminosity)
     result= fomula.calculate_habitable_zone(r_inner, r_outer, plOrbsmax)
 
+    habitablePercent=1
     if(result==0):
         habitablePercent=0
     else:
-        distance = euclidean_distances(filtered_data, earth_params)
-        similarity_eucl = 1 / (1 + distance)
+        distance = euclidean_distances([plObeccen,plDens/maxDnsity], [0.0167, 0.1072])
+        habitablePercent = 1 / (1 + distance)
 
     
 

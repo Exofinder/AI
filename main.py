@@ -11,6 +11,7 @@ async def carculateHabitable(
         plNameList: List[str] = Query(None),
         plDensList: List[str] = Query(None),
         plObeccenList: List[str] = Query(None),
+        plOrbsmaxList: List[str] = Query(None),
         stSpectypeList: List[str] = Query(None),
         stMassList: List[str] = Query(None),
         stTeffList: List[str] = Query(None),
@@ -20,16 +21,21 @@ async def carculateHabitable(
 
     results = []
 
+    maxDensityList=list(map(float,plDensList))
+    maxDensity=plDensList.max()
+
     for i in range(len(plNameList)):
         result = chp(
             plNameList[i],
             plDensList[i],
             plObeccenList[i],
+            plOrbsmaxList[i],
             stSpectypeList[i],
             stMassList[i],
             stTeffList[i],
             syDistList[i],
-            syVmagList[i]
+            syVmagList[i],
+            maxDensity
         )
         results.append(result)
 
