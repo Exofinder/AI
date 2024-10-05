@@ -1,19 +1,19 @@
 def calculate_habitable_percent(
-        planet: str,
-        host: str,
-        distance: str,
-        spectralType: str,
-        VMagnitude: str,
-        planetDensity: str,
-        hostDensity: str,
-        eccentricity: str):
+        plName: str,
+        plDens: str,
+        plRobeccen: str,
+        syDist: str,
+        syVmag: str,
+        stSpectype: str,
+        stMass: str,
+        stTeff: str):
     ########## AI logic ##########
 
-    habitablePercent = ()
+    habitablePercent = 0.01
 
     ########## AI logic ##########
 
     return {
-        "planet": planet,
+        "planet": plName,
         "habitablePercent": habitablePercent
     }
