@@ -10,12 +10,12 @@ app = FastAPI()
 async def carculateHabitable(
         plNameList: List[str] = Query(None),
         plDensList: List[str] = Query(None),
-        plRobeccenList: List[str] = Query(None),
-        syDistList: List[str] = Query(None),
-        syVmagList: List[str] = Query(None),
+        plObeccenList: List[str] = Query(None),
         stSpectypeList: List[str] = Query(None),
         stMassList: List[str] = Query(None),
-        stTeffList: List[str] = Query(None)
+        stTeffList: List[str] = Query(None),
+        syDistList: List[str] = Query(None),
+        syVmagList: List[str] = Query(None)
 ):
 
     results = []
@@ -24,12 +24,12 @@ async def carculateHabitable(
         result = chp(
             plNameList[i],
             plDensList[i],
-            plRobeccenList[i],
-            syDistList[i],
-            syVmagList[i],
+            plObeccenList[i],
             stSpectypeList[i],
             stMassList[i],
-            stTeffList[i]
+            stTeffList[i],
+            syDistList[i],
+            syVmagList[i]
         )
         results.append(result)
 
