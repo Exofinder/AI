@@ -1,4 +1,5 @@
 import fomula
+from sklearn.metrics.pairwise import euclidean_distances
 
 def calculate_habitable_percent(
         plName: str,
@@ -39,7 +40,10 @@ def calculate_habitable_percent(
     if(result==0):
         habitablePercent=0
     else:
-        habitablePercent=1
+        distance = euclidean_distances(filtered_data, earth_params)
+        similarity_eucl = 1 / (1 + distance)
+
+    
 
     ########## AI logic ##########
 
