@@ -14,7 +14,7 @@ async def carculateHabitable(
         spectralTypes: List[str] = Query(None),
         VMagnitudes: List[str] = Query(None),
         planetDensities: List[str] = Query(None),
-        hostdensities: List[str] = Query(None),
+        hostDensities: List[str] = Query(None),
         eccentricities: List[str] = Query(None)):
 
     results = []
@@ -27,7 +27,7 @@ async def carculateHabitable(
             spectralTypes[i],
             VMagnitudes[i],
             planetDensities[i],
-            hostdensities[i],
+            hostDensities[i],
             eccentricities[i]
         )
         results.append(result)
