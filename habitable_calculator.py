@@ -2,7 +2,7 @@ import formula
 from sklearn.metrics.pairwise import euclidean_distances
 
 def calculate_habitable_percent(
-        maxDnsity:float,
+        #maxDensity: float,
         plName: str,
         plDens: str,
         plObeccen: str,
@@ -92,12 +92,13 @@ def calculate_habitable_percent(
     r_inner, r_outer = formula.calculate_habitable_zone_boundaries(luminosity)
     result= formula.calculate_habitable_zone(r_inner, r_outer, plOrbsmax)
 
-    
     if(result==0):
         habitablePercent=0
     else:
-        distance = euclidean_distances([[plObeccen,plDens/maxDnsity]], [[0.0167, 5.51/maxDnsity]])
+        distance = euclidean_distances([[plObeccen, plDens/19.7]], [[0.0167, 5.51/19.7]])
+        #Divide pldense to the largest value of planets in habitable areas for normalization
         habitablePercent = 1 / (1 + distance)
+        habitablePercent = f"{habitablePercent[0][0]:.2f}"
 
     
 

@@ -50,7 +50,7 @@ def calculate_habitable_zone_boundaries(luminosity):
     return r_inner, r_outer
 
 def calculate_habitable_zone(r_inner,r_outer,au):
-    if(au>r_inner and au<r_outer):
+    if(au>=r_inner and au<=r_outer):
         return 1
     else:
         return 0
