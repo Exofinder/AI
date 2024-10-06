@@ -39,11 +39,7 @@ This methodology allows for a systematic identification and evaluation of exopla
 ## Tech Stack
 
 - Build & Bundler: `AWS Elastic Beanstalk`
-- Framework: `Spring Boot`
-- Language: `Java`
-- CSV Reader: `OpenCSV`
-- Database: `AWS RDS`
-- CORS Configuration: `WebMvcConfigurer`
-- Deploy: `AWS`
+- Framework: `FastAPI`
+- Language: `Python`
 
 ---
