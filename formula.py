@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np 
 
 spectral_type_mapping = {'O': 0, 'B': -2.0, 'A': -0.3, 'F': -0.15, 'G': -0.4, 'K': -0.8, 'M': -2.0}
 
