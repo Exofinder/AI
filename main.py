@@ -26,6 +26,7 @@ async def carculateHabitable(
 
     for i in range(len(plNameList)):
         result = chp(
+            maxDensity
             plNameList[i],
             plDensList[i],
             plObeccenList[i],
@@ -34,8 +35,7 @@ async def carculateHabitable(
             stMassList[i],
             stTeffList[i],
             syDistList[i],
-            syVmagList[i],
-            maxDensity
+            syVmagList[i]
         )
         results.append(result)
 

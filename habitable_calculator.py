@@ -40,7 +40,7 @@ def calculate_habitable_percent(
         "habitablePercent": habitablePercent
     }
     else:
-        plObeccen=float(plOrbsmax)
+        plOrbsmax=float(plOrbsmax)
 
     if(stSpectype==''):
         return {
@@ -96,7 +96,7 @@ def calculate_habitable_percent(
     if(result==0):
         habitablePercent=0
     else:
-        distance = euclidean_distances([plObeccen,plDens/maxDnsity], [0.0167, 5.51/maxDnsity])
+        distance = euclidean_distances([[plObeccen,plDens/maxDnsity]], [[0.0167, 5.51/maxDnsity]])
         habitablePercent = 1 / (1 + distance)
 
     
