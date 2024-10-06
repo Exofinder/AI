@@ -36,7 +36,7 @@ This methodology allows for a systematic identification and evaluation of exopla
      
 ---
 
-## Tech Stack`
+## Tech Stack
 - Framework: `FastAPI`  
 - Language: `Python`  
 - Version Control: 'Git'  
