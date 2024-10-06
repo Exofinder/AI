@@ -5,7 +5,7 @@ def calculate_habitable_percent(
         #maxDensity: float,
         plName: str,
         plDens: str,
-        plObeccen: str,
+        plOrbeccen: str,
         plOrbsmax: str,
         stSpectype: str,
         stMass: str,
@@ -20,63 +20,103 @@ def calculate_habitable_percent(
 
     if(plDens==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    } 
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else: 
         plDens=float(plDens)
 
-    if(plObeccen==''):
+    if(plOrbeccen==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
-        plObeccen=float(plObeccen)
+        plOrbeccen=float(plOrbeccen)
 
     if(plOrbsmax==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
         plOrbsmax=float(plOrbsmax)
 
     if(stSpectype==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     
     if(stMass==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
         stMass=float(stMass)
 
     if(stTeff==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
         stTeff=float(stTeff)
     
     if(syDist==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
         syDist=float(syDist)
     
     if(syVmag==''):
         return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
-    }
+            "plName": plName,
+            "plOrbsmax": plOrbsmax,
+            "stSpectype": stSpectype,
+            "stBrightness": '',
+            "innerBoundHabitableZone": '',
+            "outerBoundHabitableZone": '',
+            "habitablePercent": -1
+        }
     else:
         syVmag=float(syVmag)
 
@@ -95,16 +135,19 @@ def calculate_habitable_percent(
     if(result==0):
         habitablePercent=0
     else:
-        distance = euclidean_distances([[plObeccen, plDens/19.7]], [[0.0167, 5.51/19.7]])
+        distance = euclidean_distances([[plOrbeccen, plDens/19.7]], [[0.0167, 5.51/19.7]])
         #Divide pldense to the largest value of planets in habitable areas for normalization
         habitablePercent = 1 / (1 + distance)
-        habitablePercent = f"{habitablePercent[0][0]:.2f}"
-
-    
+        habitablePercent = habitablePercent[0][0]
 
     ########## AI logic ##########
 
     return {
-        "planet": plName,
-        "habitablePercent": habitablePercent
+        "plName": plName,
+        "plOrbsmax": f"{plOrbsmax:.2f}",
+        "stSpectype": stSpectype,
+        "stBrightness": f"{luminosity:.2f}",
+        "innerBoundHabitableZone": f"{r_inner:.2f}",
+        "outerBoundHabitableZone": f"{r_outer:.2f}",
+        "habitablePercent": f"{habitablePercent:.2f}"
     }
