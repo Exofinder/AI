@@ -36,10 +36,12 @@ This methodology allows for a systematic identification and evaluation of exopla
      
 ---
 
-## Tech Stack
-
-- Build & Bundler: `AWS Elastic Beanstalk`
+## Tech Stack`
 - Framework: `FastAPI`
 - Language: `Python`
-
+- Version Control: 'Git'
+- Libraries:
+        pandas: For data frame manipulation and data processing.
+        numpy: For numerical calculations and array operations.
+        scikit-learn: For machine learning and data preprocessing.    
 ---
