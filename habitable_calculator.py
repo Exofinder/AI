@@ -144,10 +144,10 @@ def calculate_habitable_percent(
 
     return {
         "plName": plName,
-        "plOrbsmax": f"{plOrbsmax:.2f}",
+        "plOrbsmax": plOrbsmax,
         "stSpectype": stSpectype,
-        "stBrightness": f"{luminosity:.2f}",
-        "innerBoundHabitableZone": f"{r_inner:.2f}",
-        "outerBoundHabitableZone": f"{r_outer:.2f}",
-        "habitablePercent": f"{habitablePercent:.2f}"
+        "stBrightness": luminosity,
+        "innerBoundHabitableZone": r_inner,
+        "outerBoundHabitableZone": r_outer,
+        "habitablePercent": habitablePercent
     }
