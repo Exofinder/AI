@@ -36,7 +36,7 @@ def calculate_habitable_percent(
         plOrbsmax=float(plOrbsmax)
         syDist=float(syDist)
 
-    if(s_flag == 1 or plDens=='' or plOrbeccen=='' or stSpectype=='' or syVmag==''):
+    if(s_flag == 0 or plDens=='' or plOrbeccen=='' or stSpectype=='' or syVmag==''):
         h_flag = 0
     else:
         plDens=float(plDens)
