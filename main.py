@@ -10,7 +10,7 @@ app = FastAPI()
 async def carculateHabitable(
         plNameList: List[str] = Query(None),
         plDensList: List[str] = Query(None),
-        plObeccenList: List[str] = Query(None),
+        plOrbeccenList: List[str] = Query(None),
         plOrbsmaxList: List[str] = Query(None),
         stSpectypeList: List[str] = Query(None),
         stMassList: List[str] = Query(None),
@@ -29,7 +29,7 @@ async def carculateHabitable(
             #maxDensity,
             plNameList[i],
             plDensList[i],
-            plObeccenList[i],
+            plOrbeccenList[i],
             plOrbsmaxList[i],
             stSpectypeList[i],
             stMassList[i],
