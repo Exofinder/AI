@@ -115,8 +115,12 @@ def calculate_habitable_percent(
     }
 
 
+    ######## Corona Logic #########
+
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from scipy.stats import gaussian_kde
 
 def calculate_corona(
@@ -127,7 +131,7 @@ def calculate_corona(
     D: str  # 기본값 6미터
 ):
     # CSV 파일 경로 설정
-    file_path = "./NASA_final.csv"
+    file_path = "./NASA_filtered_imaging.csv"
 
     # CSV 파일 읽기
     data = pd.read_csv(file_path)
@@ -144,7 +148,6 @@ def calculate_corona(
 
     # 입력된 행성의 변수 설정
     try:
-
         ES = float(sy_dist)          # 지구-항성 거리 (파섹 단위)
         PS = float(pl_orbsmax)       # 행성-항성 장반경 (AU 단위)
         R = float(st_rad)            # 항성 반경 (태양 반경 단위)
@@ -167,7 +170,7 @@ def calculate_corona(
     ESmax_input = 15 * (D / 6) / PS
 
     # CSV 데이터로부터 Imaging 행성들의 SNR과 ESmax 계산
-    df_imaging = df[df['discoverymethod'] == 'Imaging'].copy()
+    df_imaging = df
 
     # SNR과 ESmax 계산
     df_imaging['SNR'] = SNR0 * ((df_imaging['st_rad'] * df_imaging['pl_rade'] * (D / 6)) / ((df_imaging['sy_dist'] / 10) * df_imaging['pl_orbsmax'])) ** 2
@@ -207,10 +210,25 @@ def calculate_corona(
     input_values = np.array([[log_SNR_input], [log_ESmax_input]])
     density_input = kde(input_values)[0]
 
+    # 시각화: 로그 스케일로 밀도 등고선 및 입력된 값 표시
+    #plt.figure(figsize=(10, 6))
+    #sns.kdeplot(x=df_imaging['log_SNR'], y=df_imaging['log_ESmax'], fill=True, cmap='Blues', levels=30)
+    #plt.scatter(log_SNR_input, log_ESmax_input, color='red', s=100, label='Input Planet')
+    #plt.xlabel('Log SNR')
+    #plt.ylabel('Log ESmax')
+    #plt.title('Density Plot of Log SNR vs. Log ESmax with Input Planet')
+    #plt.colorbar(label='Density')
+    #plt.legend()
+    #plt.grid(True)
+
+    # 밀도 등고선과 입력 값의 시각화 결과를 보여줌
+    #plt.show()
+
     # 입력된 행성이 임계 밀도 이상인지 확인
     if density_input >= threshold:
         return 1  # 밀집 영역 내에 있으므로 1 반환
     else:
         return 0  # 밀집 영역 밖에 있으므로 0 반환
-
     
+
+
