@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query 
 from typing import List
 from habitable_calculator import calculate_habitable_percent as chp
 
